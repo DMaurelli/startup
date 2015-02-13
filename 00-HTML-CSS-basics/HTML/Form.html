@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Topic 0 - Exercise 6</title>
+    <meta charset="utf-8">
+    <meta name="description" content="form">
+    <meta name ="author" content="Diego Maurelli">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <form id="formulario" action="enviado.php" method="post">
+      <fieldset>
+	<legend>Sign Up</legend>
+	First name:<br>
+	<input id="first" name="firstname" type="text" required/>
+	<br>
+	Last name:<br>
+	<input id="last" name="lastname" type="text" required/>
+	<br>
+	Email:<br>
+	<input id="mail" name="email" type="email" required/>
+	<br>
+	Birthday:<br>
+	<input id="birthday" name="birth" type="date" required/>
+	<br>
+	Biography:<br>
+	<textarea rows="4" cols="50"></textarea>
+	<br>
+	Favourite sport:<br>
+	<select id="sport">
+	  <option>football</option>
+	  <option>rugby</option>
+	  <option>martial arts</option>
+	</select>
+      </fieldset>
+      <input type="submit" value="Submit">
+      <input type="reset" value="Clear">
+    </form>
+  </body>
+</html>
