@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Topic 1 - exercise 10</title>
+    <meta charset="utf-8">
+    <meta name="description" content="JavaScript">
+    <meta name ="author" content="Diego Maurelli">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <link href="normalize.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    
+  </head>
+  <body>
+    <header class="header">
+      <h1>Header</h1>
+    </header>
+    <section class="section">
+      <header>
+	<h2>Section header</h2>
+      </header>
+      <article>
+	Section article
+      </article>
+      <footer>
+	Section footer
+      </footer>
+    </section>
+    <section class="hiden-section">
+      Hello world
+    </section>
+    
+    <input type="text" name="alias-text" class="alias"/><br>
+    <input type="button" name="response" value="Click me!" id="button"/>
+    
+    <footer class="footer">
+      Footer
+    </footer>
+    <script>
+      $(document).ready(function(){
+	var $hidenSection = $('.hiden-section');
+	var $alias = $('.alias');
+	var $button = $('#button');
+	
+	$hidenSection.fadeIn('slow', function(){
+	  $alias.focus();
+	});
+	$button.click(function(){
+	  $.ajax({
+	    type: 'GET',
+	    url: 'http://bootcamp.aws.af.cm/welcome/'+($alias).val(),
+	    dataType: 'json',
+	    success: function(data){
+	      $hidenSection.html(data.response);
+	      highlight(($alias).val(), $hidenSection);
+	    },
+	    error: function(){
+	      $hidenSection.html("Server error!");
+	      $hidenSection.css({'color':'red'});
+	    }
+	  });
+	});
+      });
+      
+      function highlight(name, section){
+	var highlightedName;
+	var oldName = name;
+	
+	highlightedName = section.html().replace(oldName,'<span>'+name+'</span>');
+	section.html(highlightedName);
+      }
+    </script>
+  </body>
+</html>

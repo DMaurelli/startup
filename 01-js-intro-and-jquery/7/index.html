@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>Topic 1 - exercise 7</title>
+    <meta charset="utf-8">
+    <meta name="description" content="JavaScript">
+    <meta name ="author" content="Diego Maurelli">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <link href="normalize.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    
+  </head>
+  <body>
+    <header class="header">
+      <h1>Header</h1>
+    </header>
+    <section class="section">
+      <header>
+	<h2>Section header</h2>
+      </header>
+      <article>
+	Section article
+      </article>
+      <footer>
+	Section footer
+      </footer>
+    </section>
+    <section class="hiden-section">
+      Hello world
+    </section>
+    
+    <input type="button" name="response" value="Click" id="response"/><br>
+    <input type="text" name="alias-text" class="alias"/>
+    
+    <footer class="footer">
+      Footer
+    </footer>
+    <script>
+      $(document).ready(function(){
+	$(".hiden-section").fadeIn("slow", function(){
+	  $(".alias").focus();
+	});
+	$("#response").click(function(){
+	  $.ajax({
+	    type: 'GET',
+	    url: 'http://bootcamp.aws.af.cm/welcome',
+	    dataType: 'json'
+	  });
+	});
+      });
+    </script>
+  </body>
+</html>
