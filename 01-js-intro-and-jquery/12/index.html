@@ -2,7 +2,7 @@
 
 <html lang="en">
   <head>
-    <title>Topic 1 - exercise 11</title>
+    <title>Topic 1 - exercise 12</title>
     <meta charset="utf-8">
     <meta name="description" content="JavaScript">
     <meta name ="author" content="Diego Maurelli">
@@ -23,33 +23,43 @@
 	
       </header>
       <article class="section-article">
-	<h2>Rolling Stone's Albums</h2>
+	
       </article>
       <footer>
 	
       </footer>
     </section>
     <footer class="footer">
- 
     </footer>
+    
+    <div class="input">
+      <input type="text" id="artist"><br>
+      <input type="submit" id="search" value="Search">
+    </div>
     
     <script>
       $(document).ready(function(){
 	$section = $('.section');
 	$sectionArticle = $('.section-article');
-	$.ajax({
+	$artist = $('#artist');
+	$search = $('#search');
+	$artist.focus();
+	$search.click(function(){
+	  $search.hide();
+	  $artist.hide();
+	  $.ajax({
 	  type: 'get',
 	  url: 'https://api.spotify.com/v1/search',
 	  dataType: 'json',
 	  data:{
-	    q:'Rolling Stones',
+	    q: $artist.val(),
 	    type: 'album'
 	  },
 	  success: function(data){
+	    $sectionArticle.append("<div class='band'><h2>" + $artist.val() + "'s Albums</h2></div>");
 	    $.each(data.albums.items, function(index, album){
-	      //$section.append(album.name + "<br>");
-	      $sectionArticle.append("<div class='name'>Album: " + album.name + "</div>"
-				    +"<div class='type'>Type: " + album.album_type + "</div>"
+	      $sectionArticle.append("<div class='name'><h3> Album: " + album.name + "</h3></div>"
+				    +"<div class='type'> Type: " + album.album_type + "</div>"
 				    +"<img src=\"" + album.images[1].url + "\"/><br>"
 				    +"<a href=" + album.uri + ">Link to Spotify!</a>"
 				    );
@@ -58,6 +68,7 @@
 	  error: function(){
 
 	  }
+	});
 	});
       });
     </script>

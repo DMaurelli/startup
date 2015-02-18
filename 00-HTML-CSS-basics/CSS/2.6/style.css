@@ -34,6 +34,12 @@ and open the template in the editor.
   opacity: 0;
   height: 100%;
   width: 100%;
+  
+  -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+      -o-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	  transition: all .3s ease-in-out;
 }
 
 .screen:hover{
@@ -52,5 +58,13 @@ and open the template in the editor.
 }
 
 @media only screen and (max-device-width: 480px){
+  .gallery-grid{
+    width: 50%;
+  }
+}
 
+@media only screen and (max-device-width: 700px){
+  .gallery-grid{
+    width: 100%;
+  }
 }
