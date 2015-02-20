@@ -9,17 +9,18 @@ function movie(hashmap, title){
   this.title = title;
 }
 
-movie.prototype = {
-  play:function(){
+movie.prototype.play = function(){
+  
+};
 
-  },
-  stop:function(){
+movie.prototype.stop = function(){
+  
+};
 
-  },
-  set:function(attr, value){
-    this[attr] = value;
-  },
-  get:function(attr){
-    return this[attr];
-  }
+movie.prototype.set = function(attr, value){
+  this[attr] = value;
+};
+
+movie.prototype.get = function(attr){
+  return this[attr];
 };
