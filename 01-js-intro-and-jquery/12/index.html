@@ -13,6 +13,8 @@
     <link href="normalize.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     
+    <script type="text/javascript" src ="script.js"></script>
+    
   </head>
   <body>
     <header class="header">
@@ -22,6 +24,10 @@
       <header>
 	
       </header>
+      <div class="input">
+	<input type="text" id="artist"><br>
+	<input type="submit" id="search" value="Search">
+      </div>
       <article class="section-article">
 	
       </article>
@@ -30,47 +36,8 @@
       </footer>
     </section>
     <footer class="footer">
-    </footer>
+    </footer>    
     
-    <div class="input">
-      <input type="text" id="artist"><br>
-      <input type="submit" id="search" value="Search">
-    </div>
     
-    <script>
-      $(document).ready(function(){
-	$section = $('.section');
-	$sectionArticle = $('.section-article');
-	$artist = $('#artist');
-	$search = $('#search');
-	$artist.focus();
-	$search.click(function(){
-	  $search.hide();
-	  $artist.hide();
-	  $.ajax({
-	  type: 'get',
-	  url: 'https://api.spotify.com/v1/search',
-	  dataType: 'json',
-	  data:{
-	    q: $artist.val(),
-	    type: 'album'
-	  },
-	  success: function(data){
-	    $sectionArticle.append("<div class='band'><h2>" + $artist.val() + "'s Albums</h2></div>");
-	    $.each(data.albums.items, function(index, album){
-	      $sectionArticle.append("<div class='name'><h3> Album: " + album.name + "</h3></div>"
-				    +"<div class='type'> Type: " + album.album_type + "</div>"
-				    +"<img src=\"" + album.images[1].url + "\"/><br>"
-				    +"<a href=" + album.uri + ">Link to Spotify!</a>"
-				    );
-	    });
-	  },
-	  error: function(){
-
-	  }
-	});
-	});
-      });
-    </script>
   </body>
 </html>
