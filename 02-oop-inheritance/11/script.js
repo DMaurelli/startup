@@ -44,6 +44,7 @@ function movie(hashmap, title){
   this.hashmap = hashmap;
   this.title = title;
   this.movieObservers = new movieObserver();
+  this.actors = [];
 }
 
 //Movie Prototypes
@@ -107,31 +108,84 @@ downloadableMovie.prototype.download = function(){
   console.log("Downloading " + this.get('title') );
 };
 
-function extend(downloadableMovie, movie){
-  for(var i in movie){
-    if(movie.hasOwnProperty(i)){
-      downloadableMovie[i] = movie[i];
+function extend(reciving, giving){
+  for(var i in giving){
+    if(giving.hasOwnProperty(i)){
+      reciving[i] = giving[i];
     }
   }
-  return downloadableMovie;
+  return reciving;
 }
 
 extend(downloadableMovie, movie);
 
+
+//Social Object
+var social = function(){
+  
+};
+
+//Social Prototypes
+social.prototype.share = function(friendName){
+  console.log("Sharing " + this.get('title') + " with " + friendName);
+};
+
+social.prototype.like = function(){
+};
+
+//Mixing Function
+function augment(reciving, giving){
+  if(arguments[2]){
+    for(var i = 2, len = arguments.length; i < len; i++){
+      reciving.prototype[arguments[i]] = giving.prototype[arguments[i]];
+    }
+  }
+  else{
+    for(var method in giving.prototype){
+      if(!Object.hasOwnProperty.call(reciving, method)){
+	reciving.prototype[method] = giving.prototype[method];
+      }
+    }
+  }
+}
+
+augment(movie, social);
+
+//Actor Class
+function actor(name, lastName){
+  this.name = name;
+  this.lastName = lastName;
+}
+
+//Actor Objects
+var actor1 = new actor('Milla','Jovovich');
+var actor2 = new actor('Dennis','Quaid');
+
+//Movie Objects
 var movie1 = new movie("0","Resident Evil");
 var movie2 = new movie("1","The Day After Tomorrow");
 
+//Observer Object
 var obs = new observer();
+//MovieObserver Object
 var movieObs = new movieObserver();
 
+//Adding an Observer
 movieObs.add(obs);
 
+//Creating a new movie
 var terminator = new movie();
 terminator.set('title','Terminator');
 terminator.addObserver(obs);
 terminator.play();
 terminator.stop();
 
+//Creating a downloadableMovie
 var terminator = new downloadableMovie();
 terminator.set('title','Terminator');
 terminator.download();
+
+//Sharing a movie
+var ironman2 = new movie();
+ironman2.set('title','Iron Man 2');
+ironman2.share('V. Rivas');
