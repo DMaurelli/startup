@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+  <head>
+    <title>Topic 4</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Backbone">
+    <meta name ="author" content="Diego Maurelli">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="style.css">
+   
+     
+  <body>
+    <div id="app-movies-content">
+      
+    </div>
+
+    <script id="movie-list-template" type="text/x-handlebars-template">
+	<div id="movie-list">
+	  <ul style="list-style-type:none">
+	    {{#each []}}
+	      <div class="movie-content">
+		<div class="movie-description">
+		  <h1>{{title}} ({{year}})</h1>
+		  Genre: {{genre}}
+		  <div class="buttons">
+		    <a href="#movieDetails/{{id}}"><button class="details">Details</button></a>
+		  </div>
+		</div>
+		<div class="movie-image">
+		  <img src={{image}} width="140" height="209" alt={{title}}>
+		</div>
+	      </div>
+	    {{/each}}
+	  </ul>
+	</div>
+    </script>
+    
+    <script id="movie-details-template" type="text/x-handlebars-template">
+      <div id="movie-details">
+	<div class="movie-content">
+	  <div class="movie-description">
+	    <h1>{{title}} ({{year}})</h1>
+	    {{duration}} | {{genre}} | {{release}}
+	    <br>
+	    -----------------------------------------------------------------------------------------------
+	    <div class="plot">
+	      {{description}}
+	    </div>
+	    <br>
+	    <strong>Director:</strong> {{director}}
+	    <br>
+	  </div>
+	  <div class="movie-image">
+	    <img src={{image}} width="140" height="209" alt={{title}}>
+	  </div>
+	</div>
+      </div>
+      <div class="backButton">
+	<input id="backButton" type="button" value="Back" name="back">
+      </div>
+    </script>
+    <script type="text/javascript" src="jquery-2.1.3.js"></script>
+    <script type="text/javascript" src="handlebars-v3.0.0.js"></script>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="backbone.js"></script>
+    <script type="text/javascript" src="backbone.localStorage.js"></script>
+    <script type="text/javascript" src="movieList.js"></script>
+  </body>
+</html>
