@@ -47,7 +47,7 @@ h1{
   border-style: solid;
   border-radius: 10px;
   width: 25%;
-  margin-left: 37%;
+  margin-left: 496px;
 }
 
 .addTitle{
@@ -59,4 +59,9 @@ h1{
 .submitButton{
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.backButton{
+  text-align: center;
+  margin-top: 5px;
 }
