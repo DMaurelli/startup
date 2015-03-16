@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="container">
+  <header class="app-header">
+    <h1>{{appTitle}}</h1>
+  </header>
+  <ul>
+    <li ng-repeat="movie in movies">
+      <div class="movie-content">
+	<div class="movie-title">
+	  <h3>{{movie.title}} ({{movie.year}})</h3>
+	</div>
+	<hr noshade>
+	<div class="movie-genre">
+	  {{movie.genre}}
+	</div>
+      </div>
+      <div class="movie-image">
+	<img ng-src={{movie.image}} width="140" height="209" alt={{movie.title}}/>
+      </div>
+      <div class="detailsButton">
+	<a href="#/movieDetails/{{movie.title}}"><button class="details">Details</button></a>
+      </div>
+    </li>
+  </ul>
+</div>
