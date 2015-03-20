@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15/03/2015, 13:28:21
+    Author     : Diego
+*/
+
+body{
+  background-color: gray;
+  margin: 0px;
+}
+
+.app-header,
+.movie-content,
+#addMovie,
+#editMovie{
+  color: whitesmoke;
+}
+
+.app-header{
+  text-align: center;
+  border-style: solid; 
+}
+
+.movie-content{
+  position: absolute;
+  margin-left: 150px;
+  height: 190px;
+}
+
+.movie-description{
+  width: 400px;
+  margin-top: 20px; 
+}
+
+.movie-genre{
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+li{
+  list-style-type: none;
+  margin-bottom: 20px;
+}
+
+hr{
+  height: 2px;
+  background-color: whitesmoke;
+}
+
+h3{
+  margin: 0px;
+}
+
+.buttons{
+  margin-left: 150px;
+  margin-top: -25px;
+}
+
+.backButton,
+.addButton,
+#back,
+.submitButton{
+  margin-top: 5px;
+}
+
+.addButton,
+.backFormButton{
+  text-align: center;
+}
+
+#addMovie,
+#editMovie{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.remove-movie{
+  text-align: center;
+  color: whitesmoke;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div id="add-movie">
+  <header class="app-header">
+    <h1>{{appTitle}}</h1>
+  </header>
+  <form data-ng-submit="addMovie()" id="addMovie">
+    Title:<br> 
+    <input id="title" type="text" ng-model="movie.title" value="{{title}}" required/><br>
+    Duration:<br>
+    <input id="duration" type="text" ng-model="movie.duration" value="{{duration}}"><br>
+    Release:<br>
+    <input id="release" type="text" ng-model="movie.release" value="{{release}}"><br>
+    Year:<br>
+    <input id="year" type="text" ng-model="movie.year" value="{{year}}" required/><br>
+    Genre:<br>
+    <input id="genre" type="text" ng-model="movie.genre" value="{{genre}}" required/><br>
+    Description:<br>
+    <textarea id="description" rows="6" cols="22" ng-model="movie.description">{{description}}</textarea><br>
+    Director:<br>
+    <input id="director" type="text" ng-model="movie.director" value="{{director}}"><br>
+    Image:<br>
+    <input id="image" type="text" ng-model="movie.image" value="{{image}}" required/><br>
+    <div class="submitButton">
+      <input type="submit" value="Save">
+    </div>
+  </form>
+  <div class="backFormButton">
+    <a href="#/"><button id="back">Back</button></a>
+  </div>
+</div>
